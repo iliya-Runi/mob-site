@@ -1,0 +1,2326 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <!-- ===== FAVICON: РУНА АНСУЗ В КРУГЕ ===== -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='45' fill='none' stroke='%23c9a050' stroke-width='3'/><text x='50' y='68' font-size='55' text-anchor='middle' fill='%23c9a050' font-weight='bold' font-family='serif'>ᚨ</text></svg>">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <meta name="theme-color" content="#0d0d1a">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>Руны Старшего Футарка</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ============================================================ */
+        /* ===== ОБЩИЕ СТИЛИ ===== */
+        /* ============================================================ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        html {
+            font-size: 16px;
+        }
+
+        body {
+            font-family: 'Cinzel', 'Georgia', serif;
+            background: #0d0d1a;
+            color: #d4c9b8;
+            min-height: 100vh;
+            padding: 12px 12px 20px;
+            background-image:
+                radial-gradient(ellipse at 20% 50%, rgba(201, 160, 80, 0.05) 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 20%, rgba(201, 160, 80, 0.03) 0%, transparent 50%);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 0 4px;
+        }
+
+        /* ============================================================ */
+        /* ===== ШАПКА ===== */
+        /* ============================================================ */
+        header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 12px 0 16px;
+            border-bottom: 1px solid rgba(201, 160, 80, 0.2);
+            margin-bottom: 20px;
+            gap: 10px;
+            width: 100%;
+        }
+
+        .logo {
+            font-size: 26px;
+            font-weight: 700;
+            color: #c9a050;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            text-shadow: 0 0 15px rgba(201, 160, 80, 0.15);
+            text-align: center;
+        }
+
+        .logo span {
+            font-size: 13px;
+            color: #8a7a6a;
+            letter-spacing: 1.5px;
+            display: block;
+            font-weight: 400;
+        }
+
+        /* ===== МОБИЛЬНАЯ НАВИГАЦИЯ ===== */
+        .mobile-nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 6px 10px;
+            width: 100%;
+            padding: 6px 0;
+        }
+
+        .mobile-nav a {
+            color: #b8ab9a;
+            text-decoration: none;
+            font-size: 11px;
+            letter-spacing: 0.8px;
+            padding: 5px 8px;
+            border-bottom: 2px solid transparent;
+            transition: 0.2s;
+            white-space: nowrap;
+            font-weight: 500;
+            cursor: pointer;
+        }
+
+        .mobile-nav a:hover,
+        .mobile-nav a:active {
+            color: #c9a050;
+            border-bottom-color: #c9a050;
+        }
+
+        .mobile-nav .highlight-link {
+            color: #c9a050 !important;
+            border-bottom-color: rgba(201, 160, 80, 0.3) !important;
+        }
+
+        .mobile-nav .highlight-link:active {
+            color: #f0d890 !important;
+            border-bottom-color: #c9a050 !important;
+        }
+
+        .mobile-nav .active-page {
+            color: #c9a050 !important;
+            border-bottom-color: #c9a050 !important;
+        }
+
+        /* ============================================================ */
+        /* ===== СТРАНИЦЫ (все скрыты по умолчанию) ===== */
+        /* ============================================================ */
+        .page {
+            display: none;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ============================================================ */
+        /* ===== ГЛАВНАЯ СТРАНИЦА ===== */
+        /* ============================================================ */
+        .hero {
+            text-align: center;
+            padding: 25px 12px 30px;
+            background: linear-gradient(180deg, rgba(201, 160, 80, 0.04) 0%, transparent 100%);
+            border-radius: 16px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(201, 160, 80, 0.08);
+        }
+
+        .hero h1 {
+            font-size: 28px;
+            color: #c9a050;
+            text-shadow: 0 0 20px rgba(201, 160, 80, 0.15);
+            letter-spacing: 3px;
+            margin-bottom: 8px;
+        }
+
+        .hero .subtitle {
+            font-size: 13px;
+            color: #b8ab9a;
+            max-width: 100%;
+            margin: 0 auto 10px;
+            letter-spacing: 0.5px;
+            line-height: 1.7;
+            padding: 0 4px;
+        }
+
+        /* ===== РУНИЧЕСКИЙ КРУГ ===== */
+        .rune-circle-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 10px auto 20px;
+            width: 100%;
+            max-width: 320px;
+            aspect-ratio: 1 / 1;
+            position: relative;
+        }
+
+        .rune-circle {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 2px solid rgba(201, 160, 80, 0.2);
+            box-shadow: 0 0 40px rgba(201, 160, 80, 0.04);
+            animation: rotateCircle 60s linear infinite;
+        }
+
+        .rune-circle .rune-item {
+            position: absolute;
+            font-size: 20px;
+            color: #c9a050;
+            text-shadow: 0 0 15px rgba(201, 160, 80, 0.1);
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            background: rgba(13, 13, 26, 0.7);
+            border-radius: 50%;
+            border: 1px solid rgba(201, 160, 80, 0.08);
+            transition: 0.3s;
+            user-select: none;
+            backdrop-filter: blur(2px);
+            cursor: default;
+        }
+
+        .rune-circle .rune-item:active {
+            transform: scale(1.2);
+            border-color: #c9a050;
+        }
+
+        .circle-center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 18px;
+            color: #c9a050;
+            opacity: 0.4;
+            letter-spacing: 2px;
+            pointer-events: none;
+            font-weight: 700;
+            text-align: center;
+            line-height: 1.3;
+        }
+
+        .circle-center small {
+            display: block;
+            font-size: 9px;
+            opacity: 0.5;
+            letter-spacing: 2px;
+            font-weight: 400;
+        }
+
+        @keyframes rotateCircle {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .circle-controls {
+            display: flex;
+            justify-content: center;
+            margin-top: 12px;
+        }
+
+        .circle-controls button {
+            background: rgba(201, 160, 80, 0.08);
+            border: 1px solid rgba(201, 160, 80, 0.15);
+            color: #c9a050;
+            padding: 10px 28px;
+            border-radius: 30px;
+            font-family: 'Cinzel', serif;
+            font-size: 13px;
+            letter-spacing: 1.5px;
+            cursor: pointer;
+            transition: 0.3s;
+            touch-action: manipulation;
+        }
+
+        .circle-controls button:active {
+            background: rgba(201, 160, 80, 0.2);
+            border-color: #c9a050;
+            transform: scale(0.96);
+        }
+
+        /* ===== ЦИТАТА ДНЯ ===== */
+        .quote-block-mobile {
+            background: rgba(20, 20, 35, 0.4);
+            border: 1px solid rgba(201, 160, 80, 0.06);
+            border-radius: 16px;
+            padding: 20px 16px 18px;
+            text-align: center;
+            margin: 16px 0 28px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .quote-block-mobile .rune-bg {
+            position: absolute;
+            font-size: 80px;
+            color: rgba(201, 160, 80, 0.03);
+            pointer-events: none;
+            font-family: serif;
+        }
+
+        .quote-block-mobile .rune-bg.top-right {
+            top: -30px;
+            right: -20px;
+        }
+        .quote-block-mobile .rune-bg.bottom-left {
+            bottom: -20px;
+            left: -20px;
+            font-size: 60px;
+        }
+
+        .quote-block-mobile .label {
+            color: #6a5f50;
+            font-size: 10px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .quote-block-mobile .quote-text {
+            font-size: 18px;
+            color: #d4c9b8;
+            font-family: 'Georgia', serif;
+            line-height: 1.7;
+            font-style: italic;
+            max-width: 100%;
+            margin: 0 auto 6px;
+        }
+
+        .quote-block-mobile .quote-author {
+            font-size: 12px;
+            color: #6a5f50;
+            letter-spacing: 1.5px;
+        }
+
+        .quote-block-mobile .update-btn {
+            margin-top: 12px;
+            background: rgba(201, 160, 80, 0.05);
+            border: 1px solid rgba(201, 160, 80, 0.08);
+            border-radius: 30px;
+            padding: 6px 20px;
+            color: #6a5f50;
+            font-size: 11px;
+            letter-spacing: 1.5px;
+            font-family: 'Cinzel', serif;
+            cursor: pointer;
+            transition: 0.3s;
+            touch-action: manipulation;
+        }
+
+        .quote-block-mobile .update-btn:active {
+            border-color: rgba(201, 160, 80, 0.3);
+            color: #b8ab9a;
+        }
+
+        /* ===== ЗАГОЛОВКИ АТТОВ ===== */
+        .att-title {
+            text-align: center;
+            color: #c9a050;
+            font-size: 20px;
+            letter-spacing: 4px;
+            margin: 30px 0 18px;
+            padding: 12px 0;
+            border-top: 1px solid rgba(201, 160, 80, 0.08);
+            border-bottom: 1px solid rgba(201, 160, 80, 0.08);
+            text-transform: uppercase;
+        }
+
+        .att-title span {
+            color: #6a5f50;
+            font-size: 11px;
+            letter-spacing: 2px;
+            display: block;
+            margin-top: 4px;
+            font-weight: 400;
+        }
+
+        /* ===== СЕТКА РУН ===== */
+        .rune-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+            margin: 10px 0 20px;
+        }
+
+        .rune-grid a {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .rune-card {
+            background: rgba(25, 25, 45, 0.8);
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(201, 160, 80, 0.2);
+            border-radius: 16px;
+            padding: 16px 10px 18px;
+            text-align: center;
+            transition: 0.25s;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4), inset 0 0 30px rgba(201, 160, 80, 0.02);
+            min-height: 180px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        .rune-card:active {
+            transform: scale(0.96);
+            border-color: #c9a050;
+            background: rgba(40, 35, 55, 0.9);
+            box-shadow: 0 0 30px rgba(201, 160, 80, 0.1);
+        }
+
+        .rune-card .symbol {
+            font-size: 44px;
+            color: #f0d890;
+            display: block;
+            margin-bottom: 6px;
+            font-weight: 700;
+            text-shadow: 0 0 25px rgba(201, 160, 80, 0.15);
+            flex-shrink: 0;
+        }
+
+        .rune-card .name {
+            font-size: 18px;
+            font-weight: 700;
+            color: #e8ddd0;
+            margin-bottom: 4px;
+            letter-spacing: 2px;
+            flex-shrink: 0;
+        }
+
+        .rune-card .meaning {
+            font-size: 12px;
+            color: #c4b8a8;
+            line-height: 1.5;
+            font-family: 'Georgia', serif;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .rune-card .meaning span {
+            display: block;
+            font-size: 10px;
+            color: #c9a050;
+            margin-top: 5px;
+            letter-spacing: 0.8px;
+            font-weight: 700;
+            font-family: 'Cinzel', serif;
+        }
+
+        /* ============================================================ */
+        /* ===== СТРАНИЦА РУНЫ (ДЕТАЛЬНАЯ) ===== */
+        /* ============================================================ */
+        .rune-page-header {
+            text-align: center;
+            margin-bottom: 24px;
+            padding: 20px 0;
+            background: linear-gradient(180deg, rgba(201, 160, 80, 0.05) 0%, transparent 100%);
+            border-radius: 16px;
+            border: 1px solid rgba(201, 160, 80, 0.06);
+        }
+
+        .rune-page-header .symbol {
+            font-size: 80px;
+            color: #f0d890;
+            display: block;
+            text-shadow: 0 0 50px rgba(201, 160, 80, 0.2);
+            margin-bottom: 6px;
+        }
+
+        .rune-page-header .name {
+            font-size: 32px;
+            font-weight: 700;
+            color: #e8ddd0;
+            letter-spacing: 4px;
+        }
+
+        .rune-page-header .name-en {
+            font-size: 16px;
+            color: #6a5f50;
+            letter-spacing: 3px;
+            margin-top: 2px;
+        }
+
+        .rune-page-header .att {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 4px 20px;
+            border: 1px solid rgba(201, 160, 80, 0.2);
+            border-radius: 30px;
+            font-size: 11px;
+            color: #c9a050;
+            letter-spacing: 2px;
+        }
+
+        .rune-details {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 16px;
+            margin: 20px 0 30px;
+        }
+
+        .detail-block {
+            background: rgba(20, 20, 35, 0.4);
+            border-radius: 14px;
+            padding: 18px 16px;
+            border: 1px solid rgba(201, 160, 80, 0.06);
+        }
+
+        .detail-block h3 {
+            color: #c9a050;
+            font-size: 15px;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+
+        .detail-block p {
+            color: #b8ab9a;
+            font-size: 14px;
+            line-height: 1.8;
+            font-family: 'Georgia', serif;
+        }
+
+        .detail-block ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .detail-block ul li {
+            color: #b8ab9a;
+            font-size: 14px;
+            line-height: 1.8;
+            padding: 4px 0 4px 20px;
+            border-bottom: 1px solid rgba(201, 160, 80, 0.04);
+            position: relative;
+            font-family: 'Georgia', serif;
+        }
+
+        .detail-block ul li::before {
+            content: "✦";
+            color: #c9a050;
+            position: absolute;
+            left: 0;
+            font-size: 10px;
+        }
+
+        .rune-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 24px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(201, 160, 80, 0.08);
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .rune-nav a {
+            color: #c9a050;
+            text-decoration: none;
+            font-size: 12px;
+            letter-spacing: 1.5px;
+            transition: 0.25s;
+            padding: 6px 16px;
+            border: 1px solid rgba(201, 160, 80, 0.1);
+            border-radius: 30px;
+            touch-action: manipulation;
+            cursor: pointer;
+        }
+
+        .rune-nav a:active {
+            background: rgba(201, 160, 80, 0.08);
+            border-color: #c9a050;
+        }
+
+        .rune-nav .back-link {
+            border-color: transparent;
+            color: #6a5f50;
+        }
+
+        .rune-nav .back-link:active {
+            border-color: rgba(201, 160, 80, 0.15);
+            color: #c9a050;
+        }
+
+        .rune-nav .all-link {
+            border-color: rgba(201, 160, 80, 0.15);
+        }
+
+        .rune-nav .all-link:active {
+            background: rgba(201, 160, 80, 0.08);
+            border-color: #c9a050;
+        }
+
+        /* ============================================================ */
+        /* ===== СТРАНИЦА "ВСЕ РУНЫ" ===== */
+        /* ============================================================ */
+        .page-title {
+            text-align: center;
+            font-size: 26px;
+            color: #c9a050;
+            letter-spacing: 3px;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid rgba(201, 160, 80, 0.08);
+        }
+
+        .page-description {
+            text-align: center;
+            color: #b8ab9a;
+            font-size: 14px;
+            font-family: 'Georgia', serif;
+            line-height: 1.7;
+            margin-bottom: 20px;
+            padding: 0 4px;
+        }
+
+        /* ============================================================ */
+        /* ===== СТРАНИЦА "МИФОЛОГИЯ" ===== */
+        /* ============================================================ */
+        .myth-full {
+            padding: 4px;
+        }
+
+        .myth-full .myth-block {
+            background: rgba(20, 20, 35, 0.4);
+            border: 1px solid rgba(201, 160, 80, 0.06);
+            border-radius: 16px;
+            padding: 20px 16px;
+            margin-bottom: 16px;
+        }
+
+        .myth-full .myth-block h3 {
+            color: #c9a050;
+            font-size: 18px;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+        }
+
+        .myth-full .myth-block p {
+            color: #b8ab9a;
+            font-size: 14px;
+            line-height: 1.8;
+            font-family: 'Georgia', serif;
+        }
+
+        .myth-full .myth-block ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .myth-full .myth-block ul li {
+            color: #b8ab9a;
+            font-size: 14px;
+            line-height: 1.8;
+            padding: 4px 0 4px 20px;
+            position: relative;
+            font-family: 'Georgia', serif;
+            border-bottom: 1px solid rgba(201, 160, 80, 0.04);
+        }
+
+        .myth-full .myth-block ul li::before {
+            content: "✦";
+            color: #c9a050;
+            position: absolute;
+            left: 0;
+            font-size: 10px;
+        }
+
+        .myth-full .myth-block .highlight {
+            color: #c9a050;
+            font-weight: 700;
+        }
+
+        .worlds-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin: 12px 0;
+        }
+
+        .world-card {
+            background: rgba(20, 20, 35, 0.3);
+            border: 1px solid rgba(201, 160, 80, 0.06);
+            border-radius: 12px;
+            padding: 14px 12px;
+            text-align: center;
+        }
+
+        .world-card .wsymbol {
+            font-size: 28px;
+            color: #c9a050;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .world-card .wname {
+            font-size: 16px;
+            color: #e8ddd0;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .world-card .wdesc {
+            font-size: 12px;
+            color: #b8ab9a;
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            margin-top: 4px;
+        }
+
+        /* ============================================================ */
+        /* ===== СТРАНИЦА "БОГИ" ===== */
+        /* ============================================================ */
+        .gods-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+            margin: 16px 0 20px;
+        }
+
+        .god-card {
+            background: rgba(20, 20, 35, 0.4);
+            border: 1px solid rgba(201, 160, 80, 0.06);
+            border-radius: 14px;
+            padding: 16px 12px;
+            text-align: center;
+            transition: 0.25s;
+        }
+
+        .god-card:active {
+            border-color: rgba(201, 160, 80, 0.15);
+        }
+
+        .god-card .gsymbol {
+            font-size: 34px;
+            color: #c9a050;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .god-card .gname {
+            font-size: 18px;
+            color: #e8ddd0;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        .god-card .gname-en {
+            font-size: 12px;
+            color: #6a5f50;
+            letter-spacing: 1px;
+        }
+
+        .god-card .gdesc {
+            font-size: 12px;
+            color: #b8ab9a;
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            margin-top: 6px;
+        }
+
+        .god-card .gtag {
+            display: inline-block;
+            margin-top: 8px;
+            padding: 2px 14px;
+            border: 1px solid rgba(201, 160, 80, 0.1);
+            border-radius: 30px;
+            font-size: 9px;
+            color: #c9a050;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        /* ============================================================ */
+        /* ===== СТРАНИЦА "ГАДАНИЕ" ===== */
+        /* ============================================================ */
+        .divination-block {
+            background: rgba(20, 20, 35, 0.4);
+            border: 1px solid rgba(201, 160, 80, 0.06);
+            border-radius: 16px;
+            padding: 20px 16px;
+            margin-bottom: 16px;
+            text-align: center;
+        }
+
+        .divination-block h3 {
+            color: #c9a050;
+            font-size: 18px;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+        }
+
+        .divination-block p {
+            color: #b8ab9a;
+            font-size: 14px;
+            font-family: 'Georgia', serif;
+            line-height: 1.7;
+            margin-bottom: 12px;
+        }
+
+        .oracle-circle {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto;
+            background: rgba(201, 160, 80, 0.05);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            border: 2px solid rgba(201, 160, 80, 0.15);
+            transition: 0.3s;
+            position: relative;
+            touch-action: manipulation;
+        }
+
+        .oracle-circle:active {
+            border-color: rgba(201, 160, 80, 0.3);
+            transform: scale(0.97);
+        }
+
+        .oracle-circle .osymbol {
+            font-size: 48px;
+            color: #c9a050;
+            transition: 0.3s;
+        }
+
+        .oracle-result {
+            margin-top: 12px;
+            display: none;
+        }
+
+        .oracle-result .oname {
+            font-size: 18px;
+            color: #e8ddd0;
+            letter-spacing: 2px;
+        }
+
+        .oracle-result .omeaning {
+            font-size: 13px;
+            color: #b8ab9a;
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            margin-top: 4px;
+        }
+
+        .oracle-placeholder {
+            font-size: 12px;
+            color: #6a5f50;
+            font-style: italic;
+            margin-top: 8px;
+        }
+
+        .three-runes-container {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin: 12px 0;
+            flex-wrap: nowrap;
+        }
+
+        .three-runes-container .trune {
+            text-align: center;
+            background: rgba(20, 20, 35, 0.25);
+            border: 1px solid rgba(201, 160, 80, 0.06);
+            border-radius: 12px;
+            padding: 12px 10px;
+            flex: 1;
+            min-width: 80px;
+            max-width: 120px;
+        }
+
+        .three-runes-container .trune .tsymbol {
+            font-size: 32px;
+            color: #c9a050;
+            display: block;
+        }
+
+        .three-runes-container .trune .tname {
+            font-size: 13px;
+            color: #e8ddd0;
+            letter-spacing: 0.5px;
+        }
+
+        .three-runes-container .trune .tlabel {
+            font-size: 9px;
+            color: #6a5f50;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-top: 2px;
+        }
+
+        .divination-btn {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 12px 35px;
+            background: rgba(201, 160, 80, 0.08);
+            border: 1px solid rgba(201, 160, 80, 0.15);
+            border-radius: 30px;
+            color: #e8c85a;
+            font-family: 'Cinzel', serif;
+            font-size: 14px;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: 0.25s;
+            touch-action: manipulation;
+        }
+
+        .divination-btn:active {
+            background: rgba(201, 160, 80, 0.18);
+            border-color: #c9a050;
+            transform: scale(0.97);
+        }
+
+        /* ============================================================ */
+        /* ===== СТРАНИЦА "ГОРОСКОП" ===== */
+        /* ============================================================ */
+        .horoscope-form {
+            background: rgba(20, 20, 35, 0.4);
+            border: 1px solid rgba(201, 160, 80, 0.06);
+            border-radius: 16px;
+            padding: 20px 16px;
+            text-align: center;
+            margin-bottom: 16px;
+        }
+
+        .horoscope-form label {
+            display: block;
+            color: #d4c9b8;
+            font-size: 16px;
+            letter-spacing: 1.5px;
+            margin-bottom: 10px;
+        }
+
+        .horoscope-form input {
+            padding: 12px 16px;
+            border: 2px solid rgba(201, 160, 80, 0.1);
+            border-radius: 12px;
+            background: rgba(10, 10, 20, 0.4);
+            color: #d4c9b8;
+            font-size: 16px;
+            font-family: 'Cinzel', serif;
+            text-align: center;
+            width: 100%;
+            max-width: 280px;
+            transition: 0.25s;
+            outline: none;
+            touch-action: manipulation;
+        }
+
+        .horoscope-form input:focus {
+            border-color: #c9a050;
+        }
+
+        .horoscope-form button {
+            display: inline-block;
+            margin-top: 14px;
+            padding: 12px 30px;
+            background: rgba(201, 160, 80, 0.08);
+            border: 1px solid rgba(201, 160, 80, 0.15);
+            border-radius: 30px;
+            color: #e8c85a;
+            font-family: 'Cinzel', serif;
+            font-size: 14px;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: 0.25s;
+            touch-action: manipulation;
+        }
+
+        .horoscope-form button:active {
+            background: rgba(201, 160, 80, 0.16);
+            border-color: #c9a050;
+            transform: scale(0.97);
+        }
+
+        .horoscope-result {
+            display: none;
+            background: rgba(20, 20, 35, 0.4);
+            border: 1px solid rgba(201, 160, 80, 0.06);
+            border-radius: 16px;
+            padding: 20px 16px;
+            margin-top: 16px;
+            text-align: center;
+        }
+
+        .horoscope-result.show {
+            display: block;
+        }
+
+        .horoscope-result .hsymbol {
+            font-size: 64px;
+            color: #c9a050;
+            display: block;
+        }
+
+        .horoscope-result .hname {
+            font-size: 24px;
+            color: #e8ddd0;
+            font-weight: 700;
+            letter-spacing: 3px;
+        }
+
+        .horoscope-result .hmeaning {
+            font-size: 14px;
+            color: #b8ab9a;
+            font-family: 'Georgia', serif;
+            line-height: 1.7;
+            margin-top: 8px;
+        }
+
+        /* ============================================================ */
+        /* ===== СТРАНИЦА "О САЙТЕ" ===== */
+        /* ============================================================ */
+        .about-page {
+            padding: 4px;
+        }
+
+        .about-page .about-block {
+            background: rgba(20, 20, 35, 0.4);
+            border: 1px solid rgba(201, 160, 80, 0.06);
+            border-radius: 16px;
+            padding: 18px 16px;
+            margin-bottom: 16px;
+        }
+
+        .about-page .about-block h3 {
+            color: #c9a050;
+            font-size: 18px;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+        }
+
+        .about-page .about-block p {
+            color: #b8ab9a;
+            font-size: 14px;
+            line-height: 1.8;
+            font-family: 'Georgia', serif;
+        }
+
+        .about-page .about-block ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .about-page .about-block ul li {
+            color: #b8ab9a;
+            font-size: 13px;
+            line-height: 1.7;
+            padding: 4px 0 4px 20px;
+            position: relative;
+            font-family: 'Georgia', serif;
+            border-bottom: 1px solid rgba(201, 160, 80, 0.04);
+        }
+
+        .about-page .about-block ul li::before {
+            content: "✦";
+            color: #c9a050;
+            position: absolute;
+            left: 0;
+            font-size: 10px;
+        }
+
+        .about-page .highlight {
+            color: #c9a050;
+            font-weight: 700;
+        }
+
+        /* ============================================================ */
+        /* ===== СТРАНИЦА "ОБРАТНАЯ СВЯЗЬ" ===== */
+        /* ============================================================ */
+        .feedback-card {
+            background: rgba(20, 20, 35, 0.4);
+            border: 1px solid rgba(201, 160, 80, 0.06);
+            border-radius: 16px;
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        .feedback-card .ficon {
+            font-size: 56px;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .feedback-card h2 {
+            color: #e8ddd0;
+            font-size: 22px;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+        }
+
+        .feedback-card p {
+            color: #b8ab9a;
+            font-size: 14px;
+            font-family: 'Georgia', serif;
+            line-height: 1.7;
+            margin-bottom: 16px;
+        }
+
+        .feedback-btn {
+            display: inline-block;
+            padding: 14px 35px;
+            background: #0088cc;
+            color: white;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            transition: 0.25s;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            touch-action: manipulation;
+        }
+
+        .feedback-btn:active {
+            background: #006699;
+            transform: scale(0.97);
+        }
+
+        .feedback-btn .fb-icon {
+            display: inline-block;
+            margin-right: 8px;
+        }
+
+        .email-btn-fb {
+            display: inline-block;
+            margin-top: 12px;
+            padding: 12px 28px;
+            background: rgba(201, 160, 80, 0.06);
+            border: 1px solid rgba(201, 160, 80, 0.15);
+            border-radius: 30px;
+            color: #e8c85a;
+            text-decoration: none;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            font-size: 14px;
+            transition: 0.25s;
+            font-family: 'Cinzel', serif;
+            touch-action: manipulation;
+        }
+
+        .email-btn-fb:active {
+            background: rgba(201, 160, 80, 0.14);
+            border-color: #c9a050;
+            transform: scale(0.97);
+        }
+
+        /* ============================================================ */
+        /* ===== СТРАНИЦА "КОНСУЛЬТАЦИЯ" ===== */
+        /* ============================================================ */
+        .consult-block {
+            background: rgba(20, 20, 35, 0.4);
+            border: 1px solid rgba(201, 160, 80, 0.06);
+            border-radius: 16px;
+            padding: 24px 18px;
+            text-align: center;
+            margin-bottom: 16px;
+        }
+
+        .consult-block .crune {
+            font-size: 56px;
+            color: #c9a050;
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        .consult-block h2 {
+            color: #e8ddd0;
+            font-size: 22px;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+        }
+
+        .consult-block p {
+            color: #b8ab9a;
+            font-size: 14px;
+            font-family: 'Georgia', serif;
+            line-height: 1.7;
+            margin-bottom: 12px;
+        }
+
+        .consult-btn {
+            display: inline-block;
+            padding: 14px 35px;
+            background: rgba(201, 160, 80, 0.12);
+            border: 1px solid rgba(201, 160, 80, 0.2);
+            border-radius: 30px;
+            color: #e8c85a;
+            font-family: 'Cinzel', serif;
+            font-size: 14px;
+            letter-spacing: 2px;
+            text-decoration: none;
+            transition: 0.25s;
+            touch-action: manipulation;
+        }
+
+        .consult-btn:active {
+            background: rgba(201, 160, 80, 0.22);
+            border-color: #c9a050;
+            transform: scale(0.97);
+        }
+
+        .consult-steps {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin: 16px 0;
+        }
+
+        .consult-step {
+            background: rgba(20, 20, 35, 0.25);
+            border: 1px solid rgba(201, 160, 80, 0.04);
+            border-radius: 12px;
+            padding: 14px 10px;
+            text-align: center;
+        }
+
+        .consult-step .snum {
+            display: inline-block;
+            width: 28px;
+            height: 28px;
+            background: rgba(201, 160, 80, 0.08);
+            border: 1px solid rgba(201, 160, 80, 0.1);
+            border-radius: 50%;
+            line-height: 28px;
+            font-size: 14px;
+            color: #c9a050;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .consult-step h4 {
+            color: #e8ddd0;
+            font-size: 14px;
+            letter-spacing: 0.5px;
+        }
+
+        .consult-step p {
+            color: #b8ab9a;
+            font-size: 11px;
+            font-family: 'Georgia', serif;
+            line-height: 1.5;
+        }
+
+        /* ============================================================ */
+        /* ===== СТРАНИЦА "ПОДДЕРЖКА" ===== */
+        /* ============================================================ */
+        .support-block {
+            background: rgba(20, 20, 35, 0.4);
+            border: 1px solid rgba(201, 160, 80, 0.06);
+            border-radius: 16px;
+            padding: 24px 18px;
+            text-align: center;
+            margin-bottom: 16px;
+        }
+
+        .support-block .sheart {
+            font-size: 48px;
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        .support-block h2 {
+            color: #e8ddd0;
+            font-size: 22px;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+        }
+
+        .support-block p {
+            color: #b8ab9a;
+            font-size: 14px;
+            font-family: 'Georgia', serif;
+            line-height: 1.7;
+            margin-bottom: 12px;
+        }
+
+        .support-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .support-buttons a {
+            display: inline-block;
+            padding: 12px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-family: 'Cinzel', serif;
+            font-size: 13px;
+            letter-spacing: 1.5px;
+            transition: 0.25s;
+            border: 1px solid rgba(201, 160, 80, 0.12);
+            background: rgba(201, 160, 80, 0.06);
+            color: #e8c85a;
+            width: 100%;
+            text-align: center;
+            touch-action: manipulation;
+        }
+
+        .support-buttons a:active {
+            background: rgba(201, 160, 80, 0.14);
+            border-color: #c9a050;
+            transform: scale(0.97);
+        }
+
+        /* ============================================================ */
+        /* ===== МИФОЛОГИЯ (краткая на главной) ===== */
+        /* ============================================================ */
+        .myth-section-mobile {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 16px;
+            margin: 30px 0 20px;
+            padding: 20px 16px;
+            background: rgba(20, 20, 35, 0.4);
+            border-radius: 16px;
+            border: 1px solid rgba(201, 160, 80, 0.06);
+        }
+
+        .myth-section-mobile h2 {
+            font-size: 22px;
+            color: #c9a050;
+            letter-spacing: 2px;
+            text-align: center;
+            margin-bottom: 4px;
+            grid-column: 1;
+        }
+
+        .myth-text {
+            color: #b8ab9a;
+            line-height: 1.8;
+            font-size: 14px;
+            font-family: 'Georgia', serif;
+        }
+
+        .myth-text strong {
+            color: #c9a050;
+        }
+
+        .myth-text:last-of-type {
+            text-align: center;
+            color: #6a5f50;
+            font-style: italic;
+            border-top: 1px solid rgba(201, 160, 80, 0.08);
+            padding-top: 16px;
+        }
+
+        /* ============================================================ */
+        /* ===== ПОДВАЛ ===== */
+        /* ============================================================ */
+        footer {
+            margin-top: 30px;
+            padding: 20px 0 16px;
+            border-top: 1px solid rgba(201, 160, 80, 0.1);
+            text-align: center;
+            color: #6a5f50;
+            font-size: 12px;
+            letter-spacing: 0.8px;
+        }
+
+        footer a {
+            color: #8a7a6a;
+            text-decoration: none;
+            transition: 0.2s;
+            cursor: pointer;
+        }
+
+        footer a:active {
+            color: #c9a050;
+        }
+
+        footer .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin: 8px 0 4px;
+        }
+
+        /* ===== МОДАЛЬНОЕ ОКНО ПОЛИТИКИ ===== */
+        .privacy-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.75);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(4px);
+            padding: 16px;
+        }
+
+        .privacy-modal.active {
+            display: flex;
+        }
+
+        .privacy-modal .modal-content {
+            background: #1a1a2e;
+            max-width: 100%;
+            width: 100%;
+            max-height: 85vh;
+            overflow-y: auto;
+            border-radius: 18px;
+            padding: 28px 20px 24px;
+            border: 1px solid rgba(201, 160, 80, 0.12);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+            position: relative;
+        }
+
+        .privacy-modal .close-btn {
+            position: sticky;
+            top: 0;
+            float: right;
+            background: none;
+            border: none;
+            color: #6a5f50;
+            font-size: 26px;
+            cursor: pointer;
+            padding: 0 4px;
+            font-family: 'Georgia', serif;
+            transition: 0.2s;
+            z-index: 10;
+        }
+
+        .privacy-modal .close-btn:active {
+            color: #c9a050;
+        }
+
+        .privacy-modal .modal-title {
+            text-align: center;
+            font-size: 22px;
+            color: #c9a050;
+            letter-spacing: 3px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            padding-right: 30px;
+        }
+
+        .privacy-modal .modal-body {
+            color: #b8ab9a;
+            font-family: 'Georgia', serif;
+            font-size: 14px;
+            line-height: 1.9;
+            text-align: left;
+        }
+
+        .privacy-modal .modal-body strong {
+            color: #c9a050;
+        }
+
+        .privacy-modal .modal-body p {
+            margin-bottom: 14px;
+        }
+
+        .privacy-modal .accept-btn {
+            display: block;
+            width: 100%;
+            margin-top: 20px;
+            padding: 12px;
+            background: rgba(201, 160, 80, 0.08);
+            border: 1px solid rgba(201, 160, 80, 0.15);
+            border-radius: 30px;
+            color: #c9a050;
+            font-family: 'Cinzel', serif;
+            font-size: 14px;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: 0.3s;
+            touch-action: manipulation;
+        }
+
+        .privacy-modal .accept-btn:active {
+            background: rgba(201, 160, 80, 0.18);
+            border-color: #c9a050;
+        }
+
+        /* ============================================================ */
+        /* ===== АДАПТАЦИЯ ===== */
+        /* ============================================================ */
+        @media (max-width: 380px) {
+            body { padding: 8px 6px 14px; }
+            .logo { font-size: 22px; }
+            .logo span { font-size: 11px; }
+            .mobile-nav a { font-size: 10px; padding: 4px 5px; letter-spacing: 0.5px; }
+            .hero h1 { font-size: 24px; }
+            .rune-circle-container { max-width: 260px; }
+            .rune-circle .rune-item { font-size: 16px; width: 26px; height: 26px; }
+            .rune-card .symbol { font-size: 34px; }
+            .rune-card .name { font-size: 15px; }
+            .rune-card .meaning { font-size: 11px; }
+            .rune-card { min-height: 150px; padding: 14px 8px 16px; }
+            .att-title { font-size: 17px; letter-spacing: 3px; }
+            .rune-page-header .symbol { font-size: 64px; }
+            .rune-page-header .name { font-size: 26px; }
+            .worlds-grid { grid-template-columns: 1fr; }
+            .gods-grid { grid-template-columns: 1fr; }
+            .consult-steps { grid-template-columns: 1fr; }
+            .three-runes-container .trune { min-width: 60px; max-width: 90px; }
+            .three-runes-container .trune .tsymbol { font-size: 26px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <!-- ============================================================ -->
+    <!-- ===== ШАПКА ===== -->
+    <!-- ============================================================ -->
+    <header>
+        <div class="logo">
+            ᛝᚲᚷᛉᚠᚨᚱ
+            <span>Старший Футарк · 24 руны</span>
+        </div>
+
+        <nav class="mobile-nav" id="mainNav">
+            <a href="#" onclick="showPage('main'); return false;" class="active-page" data-page="main">Главная</a>
+            <a href="#" onclick="showPage('runes'); return false;" data-page="runes">Все руны</a>
+            <a href="#" onclick="showPage('horoscope'); return false;" data-page="horoscope">Гороскоп</a>
+            <a href="#" onclick="showPage('divination'); return false;" data-page="divination">Гадание</a>
+            <a href="#" onclick="showPage('gods'); return false;" data-page="gods">Боги</a>
+            <a href="#" onclick="showPage('mythology'); return false;" data-page="mythology">Мифология</a>
+            <a href="#" onclick="showPage('about'); return false;" data-page="about">О сайте</a>
+            <a href="#" onclick="showPage('feedback'); return false;" class="highlight-link" data-page="feedback">📧 Обратная связь</a>
+            <a href="#" onclick="showPage('consultation'); return false;" class="highlight-link" data-page="consultation">✈️ Консультация</a>
+            <a href="#" onclick="showPage('support'); return false;" class="highlight-link" data-page="support">₽ Поддержка</a>
+        </nav>
+    </header>
+
+    <!-- ============================================================ -->
+    <!-- ===== ГЛАВНАЯ СТРАНИЦА ===== -->
+    <!-- ============================================================ -->
+    <div class="page active" id="page-main">
+        <section class="hero">
+            <h1>Голос древних камней</h1>
+            <div class="rune-circle-container">
+                <div class="rune-circle" id="runeCircle">
+                    <div class="circle-center">ᚷ</div>
+                </div>
+            </div>
+
+            <p class="subtitle">
+                Наведи на руну в круге, чтобы узнать её имя.<br>
+                Вращение круга символизирует вечный цикл перетекания и изменения энергии.
+            </p>
+
+            <div class="circle-controls">
+                <button id="toggleRotation" class="active">⏸ Приостановить</button>
+            </div>
+        </section>
+
+        <!-- ===== ЦИТАТА ДНЯ ===== -->
+        <section class="quote-block-mobile">
+            <span class="rune-bg top-right">ᛉ</span>
+            <span class="rune-bg bottom-left">ᚨ</span>
+            <div class="label">✦ Мудрость предков ✦</div>
+            <div style="font-size:20px; color:rgba(201,160,80,0.08); letter-spacing:8px; margin-bottom:4px;">ᛝᚲᚷᛉᚠᚨᚱ</div>
+            <div class="quote-text" id="dailyQuote">«Познай себя, и ты познаешь мир.»</div>
+            <div class="quote-author" id="quoteAuthor">— из Старшей Эдды</div>
+            <button class="update-btn" onclick="updateQuote()">⟳ Обновить</button>
+        </section>
+
+
+        <!-- ===== МИФОЛОГИЯ (краткая на главной) ===== -->
+        <section class="myth-section-mobile">
+            <h2>✦ Из скандинавских саг ✦</h2>
+
+            <div class="myth-text">
+                <strong>Иггдрасиль — Мировое Древо</strong><br>
+                Великий ясень, пронизывающий все девять миров. Его корни уходят в Хель, ствол держит Мидгард, а крона касается Асгарда.
+            </div>
+
+            <div class="myth-text">
+                <strong>Один — Всеотец</strong><br>
+                Верховный бог, владыка вальгаллы. Он пожертвовал глазом, чтобы испить из колодца мудрости, и девять дней висел на Иггдрасиле, чтобы постичь тайны рун.
+            </div>
+
+            <div class="myth-text">
+                <strong>Три атта — три мира</strong><br>
+                Руны делятся на три группы по восемь. Первый атт — плодородие и созидание, второй — испытания и защита, третий — воинская честь и наследие.
+            </div>
+
+            <div class="myth-text">
+                <strong>Тюр — бог воинской чести</strong><br>
+                Пожертвовал рукой, чтобы сковать волка Фенрира. Его руна Тейваз указывает путь тем, кто готов идти до конца.
+            </div>
+
+            <div class="myth-text">
+                «Познай себя, и ты познаешь мир. Познай руны — и ты познаешь себя.»<br>
+                — из Старшей Эдды
+            </div>
+        </section>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- ===== СТРАНИЦА "ВСЕ РУНЫ" ===== -->
+    <!-- ============================================================ -->
+    <div class="page" id="page-runes">
+        <h1 class="page-title">✦ Все 24 руны Футарка ✦</h1>
+        <p class="page-description">
+            Здесь собраны все руны Старшего Футарка — от Феху до Дагаз.<br>
+            Нажми на руну, чтобы узнать о ней больше.
+        </p>
+
+        <h2 class="att-title">Первый атт <span>Руны Фрейра</span></h2>
+        <div class="rune-grid">
+            <div class="rune-card" onclick="showRunePage('fehu')"><span class="symbol">ᚠ</span><div class="name">Феху</div><div class="meaning">Богатство · Изобилие</div></div>
+            <div class="rune-card" onclick="showRunePage('uruz')"><span class="symbol">ᚢ</span><div class="name">Уруз</div><div class="meaning">Сила · Мощь</div></div>
+            <div class="rune-card" onclick="showRunePage('thurisaz')"><span class="symbol">ᚦ</span><div class="name">Турисаз</div><div class="meaning">Защита · Преодоление</div></div>
+            <div class="rune-card" onclick="showRunePage('ansuz')"><span class="symbol">ᚨ</span><div class="name">Ансуз</div><div class="meaning">Мудрость · Знание</div></div>
+            <div class="rune-card" onclick="showRunePage('raido')"><span class="symbol">ᚱ</span><div class="name">Райдо</div><div class="meaning">Путь · Перемены</div></div>
+            <div class="rune-card" onclick="showRunePage('kenaz')"><span class="symbol">ᚲ</span><div class="name">Кеназ</div><div class="meaning">Творчество · Огонь</div></div>
+            <div class="rune-card" onclick="showRunePage('gebo')"><span class="symbol">ᚷ</span><div class="name">Гебо</div><div class="meaning">Дар · Партнёрство</div></div>
+            <div class="rune-card" onclick="showRunePage('wunjo')"><span class="symbol">ᚹ</span><div class="name">Вуньо</div><div class="meaning">Радость · Успех</div></div>
+        </div>
+
+        <h2 class="att-title">Второй атт <span>Руны Хеймдалля</span></h2>
+        <div class="rune-grid">
+            <div class="rune-card" onclick="showRunePage('hagalaz')"><span class="symbol">ᚺ</span><div class="name">Хагалаз</div><div class="meaning">Разрушение · Очищение</div></div>
+            <div class="rune-card" onclick="showRunePage('nauthiz')"><span class="symbol">ᚾ</span><div class="name">Наутиз</div><div class="meaning">Нужда · Терпение</div></div>
+            <div class="rune-card" onclick="showRunePage('isa')"><span class="symbol">ᛁ</span><div class="name">Иса</div><div class="meaning">Лёд · Остановка</div></div>
+            <div class="rune-card" onclick="showRunePage('jera')"><span class="symbol">ᛃ</span><div class="name">Йера</div><div class="meaning">Урожай · Цикл</div></div>
+            <div class="rune-card" onclick="showRunePage('eihwaz')"><span class="symbol">ᛇ</span><div class="name">Эйваз</div><div class="meaning">Защита · Стойкость</div></div>
+            <div class="rune-card" onclick="showRunePage('perthro')"><span class="symbol">ᛈ</span><div class="name">Перто</div><div class="meaning">Тайна · Судьба</div></div>
+            <div class="rune-card" onclick="showRunePage('algiz')"><span class="symbol">ᛉ</span><div class="name">Альгиз</div><div class="meaning">Защита · Интуиция</div></div>
+            <div class="rune-card" onclick="showRunePage('sowilo')"><span class="symbol">ᛋ</span><div class="name">Соулу</div><div class="meaning">Солнце · Победа</div></div>
+        </div>
+
+        <h2 class="att-title">Третий атт <span>Руны Тюра</span></h2>
+        <div class="rune-grid">
+            <div class="rune-card" onclick="showRunePage('tiwaz')"><span class="symbol">ᛏ</span><div class="name">Тейваз</div><div class="meaning">Честь · Справедливость</div></div>
+            <div class="rune-card" onclick="showRunePage('berkana')"><span class="symbol">ᛒ</span><div class="name">Беркана</div><div class="meaning">Рост · Забота</div></div>
+            <div class="rune-card" onclick="showRunePage('ehwaz')"><span class="symbol">ᛖ</span><div class="name">Эхваз</div><div class="meaning">Движение · Доверие</div></div>
+            <div class="rune-card" onclick="showRunePage('mannaz')"><span class="symbol">ᛗ</span><div class="name">Манназ</div><div class="meaning">Человек · Общество</div></div>
+            <div class="rune-card" onclick="showRunePage('laguz')"><span class="symbol">ᛚ</span><div class="name">Лагуз</div><div class="meaning">Вода · Интуиция</div></div>
+            <div class="rune-card" onclick="showRunePage('inguz')"><span class="symbol">ᛝ</span><div class="name">Ингуз</div><div class="meaning">Начало · Потенциал</div></div>
+            <div class="rune-card" onclick="showRunePage('othala')"><span class="symbol">ᛟ</span><div class="name">Отал</div><div class="meaning">Родина · Наследие</div></div>
+            <div class="rune-card" onclick="showRunePage('dagaz')"><span class="symbol">ᛞ</span><div class="name">Дагаз</div><div class="meaning">Рассвет · Трансформация</div></div>
+        </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- ===== СТРАНИЦА "ГОРОСКОП" ===== -->
+    <!-- ============================================================ -->
+    <div class="page" id="page-horoscope">
+        <h1 class="page-title">✦ Рунический гороскоп ✦</h1>
+        <p class="page-description">
+            Каждому дню рождения соответствует своя руна.<br>
+            Введи дату и узнай свою руну-покровителя.
+        </p>
+
+        <div class="horoscope-form">
+            <label for="birthdate">📅 Введи дату рождения</label>
+            <input type="date" id="birthdate" max="2026-12-31" min="1900-01-01">
+            <br>
+            <button id="showHoroscope">✦ Узнать свою руну ✦</button>
+        </div>
+
+        <div class="horoscope-result" id="horoscopeResult">
+            <span class="hsymbol" id="hSymbol">ᚠ</span>
+            <div class="hname" id="hName">Феху</div>
+            <div class="hmeaning" id="hMeaning">Текст значения...</div>
+        </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- ===== СТРАНИЦА "ГАДАНИЕ" ===== -->
+    <!-- ============================================================ -->
+    <div class="page" id="page-divination">
+        <h1 class="page-title">✦ Гадание на рунах ✦</h1>
+        <p class="page-description">
+            Задай вопрос в мыслях и коснись круга, чтобы получить ответ.
+        </p>
+
+        <div class="divination-block">
+            <h3>✦ Гадание на одну руну ✦</h3>
+            <p>Коснись круга, чтобы получить ответ.</p>
+            <div class="oracle-circle" id="oracleCircle">
+                <span class="osymbol" id="oracleSymbol">ᛉ</span>
+            </div>
+            <div class="oracle-result" id="oracleResult">
+                <div class="oname" id="oracleName"></div>
+                <div class="omeaning" id="oracleMeaning"></div>
+            </div>
+            <div class="oracle-placeholder" id="oraclePlaceholder">Нажми на круг, чтобы получить ответ</div>
+        </div>
+
+        <div class="divination-block">
+            <h3>✦ Расклад «Прошлое-Настоящее-Будущее» ✦</h3>
+            <p>Задай вопрос и нажми кнопку.</p>
+            <div class="three-runes-container" id="threeRunes">
+                <div class="trune"><span class="tsymbol" id="tPast">ᚠ</span><div class="tname" id="tPastName">Феху</div><div class="tlabel">Прошлое</div></div>
+                <div class="trune"><span class="tsymbol" id="tPresent">ᚢ</span><div class="tname" id="tPresentName">Уруз</div><div class="tlabel">Настоящее</div></div>
+                <div class="trune"><span class="tsymbol" id="tFuture">ᚨ</span><div class="tname" id="tFutureName">Ансуз</div><div class="tlabel">Будущее</div></div>
+            </div>
+            <button class="divination-btn" id="threeRunesBtn">✦ Бросить руны ✦</button>
+        </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- ===== СТРАНИЦА "БОГИ" ===== -->
+    <!-- ============================================================ -->
+    <div class="page" id="page-gods">
+        <h1 class="page-title">✦ Боги Скандинавии ✦</h1>
+        <p class="page-description">
+            Девять миров и пантеон богов, которые правят, сражаются и умирают, чтобы мир продолжился.
+        </p>
+
+        <div class="gods-grid">
+            <div class="god-card"><span class="gsymbol">ᚨ</span><div class="gname">Один</div><div class="gname-en">Óðinn</div><div class="gdesc"><span style="color:#c9a050;">Всеотец</span>, бог мудрости, войны и поэзии. Пожертвовал глазом, чтобы постичь руны.</div><span class="gtag">✦ Верховный бог</span></div>
+            <div class="god-card"><span class="gsymbol">ᚦ</span><div class="gname">Тор</div><div class="gname-en">Þórr</div><div class="gdesc"><span style="color:#c9a050;">Бог грома</span>, защитник людей и Асгарда. С молотом Мьёльниром сокрушает великанов.</div><span class="gtag">✦ Защитник</span></div>
+            <div class="god-card"><span class="gsymbol">ᚲ</span><div class="gname">Локи</div><div class="gname-en">Loki</div><div class="gdesc"><span style="color:#c9a050;">Бог хаоса</span>, обманщик и перевёртыш. Отец чудовищ и виновник гибели богов.</div><span class="gtag">✦ Хаос · Иллюзия</span></div>
+            <div class="god-card"><span class="gsymbol">ᚠ</span><div class="gname">Фрейя</div><div class="gname-en">Freyja</div><div class="gdesc"><span style="color:#c9a050;">Богиня любви и войны</span>, предводительница валькирий. Владеет магией сейд.</div><span class="gtag">✦ Любовь · Магия</span></div>
+            <div class="god-card"><span class="gsymbol">ᛏ</span><div class="gname">Тюр</div><div class="gname-en">Týr</div><div class="gdesc"><span style="color:#c9a050;">Бог воинской чести</span> и правосудия. Пожертвовал рукой, чтобы сковать волка Фенрира.</div><span class="gtag">✦ Честь · Справедливость</span></div>
+            <div class="god-card"><span class="gsymbol">ᛉ</span><div class="gname">Хеймдалль</div><div class="gname-en">Heimdallr</div><div class="gdesc"><span style="color:#c9a050;">Страж Асгарда</span>, хранитель моста Бифрост. Его рог возвестит о начале Рагнарёка.</div><span class="gtag">✦ Страж · Бдительность</span></div>
+        </div>
+
+        <div class="quote-block-mobile" style="margin-top:10px;">
+            <div class="quote-text" style="font-size:16px;">«Умирают люди, умирают боги — но руны и память о них живут в тех, кто помнит.»</div>
+            <div class="quote-author">— из Старшей Эдды</div>
+        </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- ===== СТРАНИЦА "МИФОЛОГИЯ" ===== -->
+    <!-- ============================================================ -->
+    <div class="page" id="page-mythology">
+        <h1 class="page-title">✦ Скандинавская мифология ✦</h1>
+        <p class="page-description">
+            Космология, боги и судьба — всё это сплетено в девяти мирах.
+        </p>
+
+        <div class="myth-full">
+            <div class="myth-block">
+                <h3>✦ Иггдрасиль — Девять миров</h3>
+                <p><span class="highlight">Мир возник из великой бездны Гиннунгагап.</span> Там встретились иней и холод Нифльхейма с жаром и пламенем Муспельхейма. От этой встречи родились первый великан Имир и корова Аудумла. Корова вскормила Имира своим молоком и, слизывая соленые камни, «вылизала» первого бога — Бури.</p>
+                <p>Внук Бури, Один, вместе с братьями Вили и Ве убили великана Имира. Из его тела они создали весь мир: плоть стала землёй, кровь — морем, кости — горами, череп — небесным сводом.</p>
+            </div>
+
+            <div class="myth-block">
+                <h3>✦ Девять миров</h3>
+                <div class="worlds-grid">
+                    <div class="world-card"><span class="wsymbol">ᛉ</span><div class="wname">Асгард</div><div class="wdesc">Мир богов-асов. Здесь находится Вальгалла.</div></div>
+                    <div class="world-card"><span class="wsymbol">ᛗ</span><div class="wname">Мидгард</div><div class="wdesc">Мир людей, где плавает Мировой Змей.</div></div>
+                    <div class="world-card"><span class="wsymbol">ᛝ</span><div class="wname">Ванахейм</div><div class="wdesc">Мир богов-ванов, духов природы.</div></div>
+                    <div class="world-card"><span class="wsymbol">ᛋ</span><div class="wname">Альфхейм</div><div class="wdesc">Мир светлых эльфов, гармония и радость.</div></div>
+                    <div class="world-card"><span class="wsymbol">ᛈ</span><div class="wname">Свартальфхейм</div><div class="wdesc">Мир тёмных эльфов, кузница артефактов.</div></div>
+                    <div class="world-card"><span class="wsymbol">ᛇ</span><div class="wname">Ётунхейм</div><div class="wdesc">Мир великанов-ётунов, тайные знания.</div></div>
+                    <div class="world-card"><span class="wsymbol">ᚲ</span><div class="wname">Муспельхейм</div><div class="wdesc">Мир изначального пламени, огненные великаны.</div></div>
+                    <div class="world-card"><span class="wsymbol">│</span><div class="wname">Нифльхейм</div><div class="wdesc">Мир льда и туманов, холодная пустота.</div></div>
+                    <div class="world-card"><span class="wsymbol">ᛟ</span><div class="wname">Хельхейм</div><div class="wdesc">Мир мёртвых, управляется богиней Хель.</div></div>
+                </div>
+            </div>
+
+            <div class="myth-block">
+                <h3>✦ Руны и их божественные покровители</h3>
+                <p>Каждая руна Старшего Футарка связана с определённым божеством или силой, которая раскрывает её истинное значение:</p>
+                <ul>
+                    <li><span class="highlight">ᚠ</span> Феху — Фрейр</li>
+                    <li><span class="highlight">ᚢ</span> Уруз — Фрейр</li>
+                    <li><span class="highlight">ᚦ</span> Турисаз — Тор</li>
+                    <li><span class="highlight">ᚨ</span> Ансуз — Один</li>
+                    <li><span class="highlight">ᚱ</span> Райдо — Один</li>
+                    <li><span class="highlight">ᚲ</span> Кеназ — Локи</li>
+                    <li><span class="highlight">ᚷ</span> Гебо — Один</li>
+                    <li><span class="highlight">ᚹ</span> Вуньо — Фрейр</li>
+                    <li><span class="highlight">ᚺ</span> Хагалаз — Хеймдалль</li>
+                    <li><span class="highlight">ᚾ</span> Наутиз — Хеймдалль</li>
+                    <li><span class="highlight">ᛁ</span> Иса — Хеймдалль</li>
+                    <li><span class="highlight">ᛃ</span> Йера — Фрейр</li>
+                    <li><span class="highlight">ᛇ</span> Эйваз — Ясень Игдрасиль</li>
+                    <li><span class="highlight">ᛈ</span> Перто — Фрейя</li>
+                    <li><span class="highlight">ᛉ</span> Альгиз — Хеймдалль</li>
+                    <li><span class="highlight">ᛋ</span> Соулу — Бальдр</li>
+                    <li><span class="highlight">ᛏ</span> Тейваз — Тюр</li>
+                    <li><span class="highlight">ᛒ</span> Беркана — Фрейя</li>
+                    <li><span class="highlight">ᛖ</span> Эхваз — Символ коня</li>
+                    <li><span class="highlight">ᛗ</span> Манназ — Хеймдалль</li>
+                    <li><span class="highlight">ᛚ</span> Лагуз — Ньёрд</li>
+                    <li><span class="highlight">ᛝ</span> Ингуз — Фрейр</li>
+                    <li><span class="highlight">ᛟ</span> Отал — Один</li>
+                    <li><span class="highlight">ᛞ</span> Дагаз — Рассвет</li>
+                </ul>
+            </div>
+
+            <div class="myth-block">
+                <h3>✦ Рагнарёк — Судьба богов</h3>
+                <p><span class="highlight">Рагнарёк</span> — не конец, а начало нового цикла. Битва, в которой падут боги, но мир возродится из пепла. Это учение о том, что всё имеет свою цену, и даже великие не вечны.</p>
+                <ul>
+                    <li>Фенрир разорвёт цепи и поглотит Одина</li>
+                    <li>Тор сразит Мирового Змея, но погибнет</li>
+                    <li>Локи выйдет на свободу и поведёт силы хаоса</li>
+                    <li>Сурт сожжёт мир своим огнём</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- ===== СТРАНИЦА "О САЙТЕ" ===== -->
+    <!-- ============================================================ -->
+    <div class="page" id="page-about">
+        <h1 class="page-title">✦ О сайте ✦</h1>
+        
+        <div class="about-page">
+            <div class="about-block">
+                <h3>✦ Зачем этот сайт</h3>
+                <p>
+                    Я создал этот проект, чтобы познакомить вас с рунической традицией в её <span class="highlight">аутентичном</span> виде —
+                    без искажений, современных гадательных наслоений и упрощений.
+                </p>
+            </div>
+
+            <div class="about-block">
+                <h3>⚔️ Почему нет перевёрнутых рун?</h3>
+                <p>
+                    В древности руны не переворачивали. Перевёрнутые значения — это <span class="highlight">современная традиция</span>,
+                    появившаяся в XX веке. Для скандинавов руна была целостным символом.
+                </p>
+            </div>
+
+            <div class="about-block">
+                <h3>📚 Источники вдохновения</h3>
+                <ul>
+                    <li>«Старшая Эдда» — сборник древнескандинавских песен</li>
+                    <li>«Младшая Эдда» Снорри Стурлусона</li>
+                    <li>Археологические находки — рунические камни</li>
+                    <li>Работы современных рунологов и историков</li>
+                </ul>
+            </div>
+
+            <div class="about-block" style="text-align:center;">
+                <p style="font-size:28px; letter-spacing:6px; color:#c9a050; opacity:0.3;">ᚲᛃᚨᛉᚷᚠᚱ</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- ===== СТРАНИЦА "ОБРАТНАЯ СВЯЗЬ" ===== -->
+    <!-- ============================================================ -->
+    <div class="page" id="page-feedback">
+        <h1 class="page-title">✦ Обратная связь ✦</h1>
+        <p class="page-description">
+            Ваши вопросы, предложения и идеи помогут сделать сайт лучше.
+        </p>
+
+        <div class="feedback-card">
+            <span class="ficon">✉️</span>
+            <h2>Напишите нам в Telegram</h2>
+            <p>
+                Задайте вопрос, оставьте предложение или просто поделитесь впечатлениями.<br>
+                Мы читаем каждое сообщение.
+            </p>
+            <a href="https://t.me/FutharkRunes" target="_blank" class="feedback-btn">
+                <span class="fb-icon">✈️</span> Перейти в Telegram
+            </a>
+            <div style="margin-top:6px; font-size:13px; color:#ccab7c; font-style:italic;">@FutharkRunes</div>
+            
+            <a href="https://e.mail.ru/compose?to=futhark_podergca@mail.ru" target="_blank" class="email-btn-fb" style="margin-top:12px;">
+                ✉️ Написать на почту
+            </a>
+            <div style="margin-top:4px; font-size:12px; color:#6a5f50;">futhark_podergca@mail.ru</div>
+        </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- ===== СТРАНИЦА "КОНСУЛЬТАЦИЯ" ===== -->
+    <!-- ============================================================ -->
+    <div class="page" id="page-consultation">
+        <h1 class="page-title">✦ Консультация рунолога ✦</h1>
+        <p class="page-description">
+            Помощь в вопросах жизни, судьбы и принятия решений.
+        </p>
+
+        <div class="consult-block">
+            <span class="crune">ᛉ</span>
+            <h2>Сделайте шаг к пониманию своей судьбы</h2>
+            <p>
+                Руны помогают увидеть скрытые причины событий, найти выход из трудной ситуации
+                и обрести внутреннюю гармонию.
+            </p>
+            <a href="https://t.me/wiztower" target="_blank" class="consult-btn">✧ Записаться ✧</a>
+            <div style="margin-top:6px; font-size:12px; color:#6a5f50;">Онлайн-консультация в Telegram</div>
+        </div>
+
+        <div class="consult-block">
+            <h2>✦ Как проходит консультация ✦</h2>
+            <div class="consult-steps">
+                <div class="consult-step"><span class="snum">1</span><h4>Знакомство</h4><p>Вы рассказываете о своей ситуации.</p></div>
+                <div class="consult-step"><span class="snum">2</span><h4>Расклад</h4><p>Я делаю рунический расклад.</p></div>
+                <div class="consult-step"><span class="snum">3</span><h4>Разбор</h4><p>Анализируем корни проблем.</p></div>
+                <div class="consult-step"><span class="snum">4</span><h4>Рекомендации</h4><p>Вы получаете план действий.</p></div>
+            </div>
+        </div>
+
+        <div class="consult-block">
+            <h2>✦ Подпишитесь на канал ✦</h2>
+            <p>Разбор рун и ответы на вопросы подписчиков.</p>
+            <a href="https://www.youtube.com/@frothmar" target="_blank" class="consult-btn" style="background:rgba(255,0,0,0.1); border-color:rgba(255,0,0,0.3);">▶️ YouTube</a>
+        </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- ===== СТРАНИЦА "ПОДДЕРЖКА" ===== -->
+    <!-- ============================================================ -->
+    <div class="page" id="page-support">
+        <h1 class="page-title">✦ Поддержать создателя ✦</h1>
+        <p class="page-description">
+            Если вам откликается этот проект, вы можете поддержать его развитие.
+        </p>
+
+        <div class="support-block">
+            <span class="sheart">☕</span>
+            <h2>Спасибо, что вы здесь ✦</h2>
+            <p>
+                Этот сайт создан с душой. Ваша поддержка — это знак того, что я двигаюсь в правильном направлении.
+                Все средства пойдут на развитие проекта.
+            </p>
+            <div style="font-size:13px; color:#c9a050; margin-bottom:12px;">Благодарю вас от всего сердца. ᛉ</div>
+        </div>
+
+        <div class="support-block">
+            <h2>✦ Способы поддержки ✦</h2>
+            <div class="support-buttons">
+                <a href="https://www.donationalerts.com/r/ElderFuthark" target="_blank">✦ DonationAlerts</a>
+                <a href="https://boosty.to/ElderFuthark" target="_blank">✦ Boosty</a>
+                <a href="https://www.tbank.ru/rm/r_UTQlDYdoht.DjsPiABpsp/Ip9Qr54681" target="_blank">✦ Счет СБП</a>
+            </div>
+            <p style="margin-top:12px; font-size:12px; color:#6a5f50; font-style:italic;">
+                Спасибо, что заглянули. Пусть руны ведут вас правильным путём. ᛉ
+            </p>
+        </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- ===== СТРАНИЦА РУНЫ (ДЕТАЛЬНАЯ) — отдельная страница ===== -->
+    <!-- ============================================================ -->
+    <div class="page" id="page-rune-detail">
+        <div class="rune-page-header">
+            <span class="symbol" id="runeDetailSymbol">ᚠ</span>
+            <div class="name" id="runeDetailName">Феху</div>
+            <div class="name-en" id="runeDetailNameEn">Fehu</div>
+            <span class="att" id="runeDetailAtt">Первый атт · Фрейр</span>
+        </div>
+
+        <div class="rune-details">
+            <div class="detail-block">
+                <h3>✦ Значение</h3>
+                <p id="runeDetailMeaning">Текст значения...</p>
+            </div>
+            <div class="detail-block">
+                <h3>✦ Ключевые слова</h3>
+                <ul id="runeDetailKeywords">
+                    <li>Ключевое слово 1</li>
+                    <li>Ключевое слово 2</li>
+                </ul>
+            </div>
+            <div class="detail-block">
+                <h3>✦ В мифологии</h3>
+                <p id="runeDetailMyth">Текст мифологии...</p>
+            </div>
+            <div class="detail-block">
+                <h3>✦ Стих из Эдды</h3>
+                <p id="runeDetailQuote" style="font-style: italic; color: #c9a050;">«Текст цитаты...»</p>
+            </div>
+        </div>
+
+        <div class="rune-nav">
+            <a href="#" id="runeDetailPrev" class="back-link">← Предыдущая</a>
+            <a href="#" onclick="showPage('runes'); return false;" class="all-link">◈ Все руны</a>
+            <a href="#" id="runeDetailNext">Следующая →</a>
+        </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- ===== ПОДВАЛ ===== -->
+    <!-- ============================================================ -->
+    <footer>
+        <p>ᛝᚲᚷᛉᚠᚨᚱ · руны Старшего Футарка</p>
+        <div class="footer-links">
+            <a href="#" onclick="showPage('main'); return false;">Главная</a>
+            <a href="#" onclick="showPage('runes'); return false;">Руны</a>
+            <a href="#" onclick="showPage('about'); return false;">О сайте</a>
+            <a href="#" onclick="openPrivacyPolicy(); return false;">Политика</a>
+        </div>
+        <p style="margin-top: 10px; font-size: 11px; opacity: 0.7;">© 2026 · ᚲᛃᚨᛉᚷᚠᚱ Сделано с душой и мудростью</p>
+    </footer>
+
+    <!-- ============================================================ -->
+    <!-- ===== МОДАЛЬНОЕ ОКНО ПОЛИТИКИ ===== -->
+    <!-- ============================================================ -->
+    <div class="privacy-modal" id="privacyModal">
+        <div class="modal-content">
+            <button class="close-btn" onclick="closePrivacyPolicy()">✕</button>
+            <div class="modal-title">✦ Политика конфиденциальности ✦</div>
+            <div class="modal-body">
+                <p><strong>1. Общие положения</strong><br>
+                Настоящий сайт является <strong>познавательным ресурсом</strong>, посвящённым изучению рун Старшего Футарка.</p>
+                <p><strong>2. Согласие с условиями</strong><br>
+                Используя данный Сайт, вы <strong>подтверждаете</strong>, что ознакомились с настоящей Политикой.</p>
+                <p><strong>3. Познавательный характер</strong><br>
+                Весь контент носит <strong>исключительно информационный и познавательный характер</strong>.</p>
+                <p><strong>4. Ответственность пользователя</strong><br>
+                <strong>Вся ответственность</strong> за применение информации лежит <strong>исключительно на посетителе</strong>.</p>
+                <p><strong>5. Сбор и обработка данных</strong><br>
+                Сайт не собирает и не хранит персональные данные пользователей.</p>
+                <p style="text-align:center; color:#6a5f50; font-size:12px; border-top:1px solid rgba(201,160,80,0.04); padding-top:14px;">
+                    Последнее обновление: <strong style="color:#8a7a6a;">сентябрь 2026 года</strong>
+                </p>
+            </div>
+            <button class="accept-btn" onclick="closePrivacyPolicy()">✦ Принимаю</button>
+        </div>
+    </div>
+
+</div>
+
+<!-- ============================================================ -->
+<!-- ===== JAVASCRIPT ===== -->
+<!-- ============================================================ -->
+<script>
+    // ============================================================
+    // ===== ДАННЫЕ РУН (полные данные для всех 24 рун) =====
+    // ============================================================
+    const runeData = {
+        'fehu': { symbol: 'ᚠ', name: 'Феху', nameEn: 'Fehu', att: 'Первый атт · Фрейр', meaning: 'Феху — руна богатства и изобилия. Она символизирует энергию созидания, способность создавать и приумножать.', keywords: ['Богатство и процветание', 'Энергия созидания', 'Материальные блага', 'Успех в начинаниях'], myth: 'Феху связана с богом Фрейром, покровителем плодородия. В древности скот был главным мерилом богатства.', quote: '«Богатство — утешение для человека, но оно должно быть разделено, иначе принесёт лишь горе.»' },
+        'uruz': { symbol: 'ᚢ', name: 'Уруз', nameEn: 'Uruz', att: 'Первый атт · Фрейр', meaning: 'Уруз — руна первобытной силы и выносливости. Символизирует дикую, неукротимую энергию.', keywords: ['Сила и мощь', 'Выносливость', 'Стойкость', 'Преодоление'], myth: 'Уруз связана с туром — диким быком, символом необузданной силы.', quote: '«Сила нужна тому, кто хочет победить, но ещё важнее — сила духа, чтобы не сдаться.»' },
+        'thurisaz': { symbol: 'ᚦ', name: 'Турисаз', nameEn: 'Thurisaz', att: 'Первый атт · Фрейр', meaning: 'Турисаз — руна защиты и преодоления препятствий. Символизирует молот Тора.', keywords: ['Защита', 'Препятствие', 'Молот Тора', 'Отражение негатива'], myth: 'Турисаз связана с Тором и его молотом Мьёльниром. Руна учит ставить границы.', quote: '«Молот Тора сокрушает великанов, но защищает тех, кто достоин.»' },
+        'ansuz': { symbol: 'ᚨ', name: 'Ансуз', nameEn: 'Ansuz', att: 'Первый атт · Фрейр', meaning: 'Ансуз — руна мудрости и знания. Связана с Одином, который пожертвовал глазом.', keywords: ['Мудрость', 'Знание', 'Вдохновение', 'Ясность ума'], myth: 'Ансуз — руна Одина, символизирует дар речи, поэзию и магию рун.', quote: '«Знание — это ключ к миру. Познай руны — и ты познаешь себя.»' },
+        'raido': { symbol: 'ᚱ', name: 'Райдо', nameEn: 'Raido', att: 'Первый атт · Фрейр', meaning: 'Райдо — руна пути и путешествий. Символизирует движение вперёд и развитие.', keywords: ['Путь', 'Путешествие', 'Перемены', 'Направление'], myth: 'Райдо связана с колесницами богов и странствиями.', quote: '«Путь начинается с первого шага. Иди вперёд, и дорога появится.»' },
+        'kenaz': { symbol: 'ᚲ', name: 'Кеназ', nameEn: 'Kenaz', att: 'Первый атт · Фрейр', meaning: 'Кеназ — руна огня и творчества. Символизирует внутренний свет и вдохновение.', keywords: ['Факел', 'Творчество', 'Огонь', 'Вдохновение'], myth: 'Кеназ связана с кузнецами и мастерами. Огонь — созидательная сила.', quote: '«Огонь — это свет во тьме. Зажги его, и ты увидишь путь.»' },
+        'gebo': { symbol: 'ᚷ', name: 'Гебо', nameEn: 'Gebo', att: 'Первый атт · Фрейр', meaning: 'Гебо — руна дара и партнёрства. Символизирует равновесие в отношениях.', keywords: ['Дар', 'Партнёрство', 'Равновесие', 'Союз'], myth: 'Гебо связана с обменом дарами между богами и людьми.', quote: '«Дар должен быть равноценен дару. Так сохраняется гармония в мире.»' },
+        'wunjo': { symbol: 'ᚹ', name: 'Вуньо', nameEn: 'Wunjo', att: 'Первый атт · Фрейр', meaning: 'Вуньо — руна радости и успеха. Символизирует удовлетворение и душевный подъём.', keywords: ['Радость', 'Успех', 'Свет', 'Исполнение'], myth: 'Вуньо связана с благополучием и счастьем.', quote: '«Радость — это награда за пройденный путь.»' },
+        'hagalaz': { symbol: 'ᚺ', name: 'Хагалаз', nameEn: 'Hagalaz', att: 'Второй атт · Хеймдалль', meaning: 'Хагалаз — руна разрушения и очищения. Символизирует неизбежные перемены.', keywords: ['Град', 'Разрушение', 'Очищение', 'Перемены'], myth: 'Хагалаз связана с Хеймдаллем — стражем моста Бифрост.', quote: '«Буря сметает старое, но после неё приходит ясность.»' },
+        'nauthiz': { symbol: 'ᚾ', name: 'Наутиз', nameEn: 'Nauthiz', att: 'Второй атт · Хеймдалль', meaning: 'Наутиз — руна нужды и терпения. Символизирует трудности, которые закаляют дух.', keywords: ['Нужда', 'Препятствие', 'Терпение', 'Внутренняя сила'], myth: 'Наутиз связана с суровой северной природой.', quote: '«Терпение — это сила, которую не сломать.»' },
+        'isa': { symbol: 'ᛁ', name: 'Иса', nameEn: 'Isa', att: 'Второй атт · Хеймдалль', meaning: 'Иса — руна льда и остановки. Символизирует время заморозки и накопления сил.', keywords: ['Лёд', 'Заморозка', 'Остановка', 'Сохранение'], myth: 'Иса — руна зимы и покоя.', quote: '«Лёд скрывает течение, но не останавливает его.»' },
+        'jera': { symbol: 'ᛃ', name: 'Йера', nameEn: 'Jera', att: 'Второй атт · Хеймдалль', meaning: 'Йера — руна урожая и завершения циклов. Символизирует справедливость.', keywords: ['Урожай', 'Год', 'Цикл', 'Справедливость'], myth: 'Йера связана с годовым циклом и законом воздаяния.', quote: '«Что посеешь, то и пожнёшь.»' },
+        'eihwaz': { symbol: 'ᛇ', name: 'Эйваз', nameEn: 'Eihwaz', att: 'Второй атт · Хеймдалль', meaning: 'Эйваз — руна тиса и защиты. Символизирует связь между мирами.', keywords: ['Тис', 'Защита', 'Выносливость', 'Связь миров'], myth: 'Эйваз связана с Иггдрасилем — Мировым Древом.', quote: '«Тис стоит вечно, даже когда всё вокруг рушится.»' },
+        'perthro': { symbol: 'ᛈ', name: 'Перто', nameEn: 'Perthro', att: 'Второй атт · Хеймдалль', meaning: 'Перто — руна тайны и судьбы. Символизирует неизведанное и женскую интуицию.', keywords: ['Тайна', 'Жребий', 'Судьба', 'Интуиция'], myth: 'Перто связана с норнами — прядильщицами судьбы.', quote: '«Судьба — это нить, которую прядут боги.»' },
+        'algiz': { symbol: 'ᛉ', name: 'Альгиз', nameEn: 'Algiz', att: 'Второй атт · Хеймдалль', meaning: 'Альгиз — руна защиты и интуиции. Символизирует лося, чутко реагирующего на опасность.', keywords: ['Лось', 'Защита', 'Интуиция', 'Охрана'], myth: 'Альгиз связана с Хеймдаллем, стражем Асгарда.', quote: '«Тот, кто слышит свой внутренний голос, никогда не попадёт в ловушку.»' },
+        'sowilo': { symbol: 'ᛋ', name: 'Соулу', nameEn: 'Sowilo', att: 'Второй атт · Хеймдалль', meaning: 'Соулу — руна солнца и победы. Символизирует триумф и просветление.', keywords: ['Солнце', 'Победа', 'Целостность', 'Энергия'], myth: 'Соулу связана с солнечным светом и победой над тьмой.', quote: '«Солнце всегда восходит после ночи. Верь в свет.»' },
+        'tiwaz': { symbol: 'ᛏ', name: 'Тейваз', nameEn: 'Tiwaz', att: 'Третий атт · Тюр', meaning: 'Тейваз — руна чести и справедливости. Символизирует самопожертвование.', keywords: ['Тюр', 'Честь', 'Победа', 'Справедливость'], myth: 'Тейваз связана с Тюром — богом войны и справедливости.', quote: '«Честь дороже жизни. Сражайся за правду.»' },
+        'berkana': { symbol: 'ᛒ', name: 'Беркана', nameEn: 'Berkana', att: 'Третий атт · Тюр', meaning: 'Беркана — руна роста и заботы. Символизирует берёзу и материнство.', keywords: ['Берёза', 'Рост', 'Забота', 'Семья'], myth: 'Беркана связана с материнской энергией.', quote: '«Как берёза даёт жизнь новым росткам, так и забота даёт жизнь новым возможностям.»' },
+        'ehwaz': { symbol: 'ᛖ', name: 'Эхваз', nameEn: 'Ehwaz', att: 'Третий атт · Тюр', meaning: 'Эхваз — руна движения и доверия. Символизирует коня и гармонию.', keywords: ['Конь', 'Движение', 'Доверие', 'Гармония'], myth: 'Эхваз связана с верными спутниками и путешествиями.', quote: '«Верный конь приведёт тебя к цели.»' },
+        'mannaz': { symbol: 'ᛗ', name: 'Манназ', nameEn: 'Mannaz', att: 'Третий атт · Тюр', meaning: 'Манназ — руна человека и общества. Символизирует разум и взаимодействие.', keywords: ['Человек', 'Общество', 'Разум', 'Взаимодействие'], myth: 'Манназ связана с человеческим родом и памятью предков.', quote: '«Человек силён своими корнями.»' },
+        'laguz': { symbol: 'ᛚ', name: 'Лагуз', nameEn: 'Laguz', att: 'Третий атт · Тюр', meaning: 'Лагуз — руна воды и интуиции. Символизирует поток жизни и эмоции.', keywords: ['Вода', 'Интуиция', 'Поток', 'Эмоции'], myth: 'Лагуз связана с водой и подсознанием.', quote: '«Вода течёт туда, где ей нужно.»' },
+        'inguz': { symbol: 'ᛝ', name: 'Ингуз', nameEn: 'Inguz', att: 'Третий атт · Тюр', meaning: 'Ингуз — руна начала и потенциала. Символизирует новые проекты и плодородие.', keywords: ['Инг', 'Начало', 'Потенциал', 'Плодородие'], myth: 'Ингуз связана с богом Ингом (Фрейром).', quote: '«Каждое начало несёт в себе семя великого будущего.»' },
+        'othala': { symbol: 'ᛟ', name: 'Отал', nameEn: 'Othala', att: 'Третий атт · Тюр', meaning: 'Отал — руна родины и наследия. Символизирует дом и связь с предками.', keywords: ['Родина', 'Наследие', 'Дом', 'Корни'], myth: 'Отал связана с родовым наследием и землёй предков.', quote: '«Земля предков хранит силу рода.»' },
+        'dagaz': { symbol: 'ᛞ', name: 'Дагаз', nameEn: 'Dagaz', att: 'Третий атт · Тюр', meaning: 'Дагаз — руна рассвета и трансформации. Символизирует прорыв и новое начало.', keywords: ['Рассвет', 'Прорыв', 'Трансформация', 'Новое начало'], myth: 'Дагаз связана со сменой дня и ночи.', quote: '«После ночи всегда приходит рассвет.»' }
+    };
+
+    const runeKeys = Object.keys(runeData);
+
+    // ============================================================
+    // ===== ПЕРЕКЛЮЧЕНИЕ СТРАНИЦ =====
+    // ============================================================
+    function showPage(pageId) {
+        document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+        const target = document.getElementById('page-' + pageId);
+        if (target) target.classList.add('active');
+        
+        document.querySelectorAll('#mainNav a').forEach(a => a.classList.remove('active-page'));
+        const navLink = document.querySelector(`#mainNav a[data-page="${pageId}"]`);
+        if (navLink) navLink.classList.add('active-page');
+        
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        history.pushState(null, '', `?page=${pageId}`);
+    }
+
+    // ============================================================
+    // ===== ПОКАЗ СТРАНИЦЫ РУНЫ =====
+    // ============================================================
+    function showRunePage(runeKey) {
+        const data = runeData[runeKey];
+        if (!data) return;
+
+        document.getElementById('runeDetailSymbol').textContent = data.symbol;
+        document.getElementById('runeDetailName').textContent = data.name;
+        document.getElementById('runeDetailNameEn').textContent = data.nameEn;
+        document.getElementById('runeDetailAtt').textContent = data.att;
+        document.getElementById('runeDetailMeaning').textContent = data.meaning;
+
+        const keywordsList = document.getElementById('runeDetailKeywords');
+        keywordsList.innerHTML = '';
+        data.keywords.forEach(kw => {
+            const li = document.createElement('li');
+            li.textContent = kw;
+            keywordsList.appendChild(li);
+        });
+
+        document.getElementById('runeDetailMyth').textContent = data.myth;
+        document.getElementById('runeDetailQuote').textContent = data.quote;
+
+        const currentIndex = runeKeys.indexOf(runeKey);
+        const prevKey = currentIndex > 0 ? runeKeys[currentIndex - 1] : runeKeys[runeKeys.length - 1];
+        const nextKey = currentIndex < runeKeys.length - 1 ? runeKeys[currentIndex + 1] : runeKeys[0];
+
+        document.getElementById('runeDetailPrev').onclick = function(e) {
+            e.preventDefault();
+            showRunePage(prevKey);
+        };
+        document.getElementById('runeDetailNext').onclick = function(e) {
+            e.preventDefault();
+            showRunePage(nextKey);
+        };
+
+        showPage('rune-detail');
+        history.pushState(null, '', `?page=rune&rune=${runeKey}`);
+    }
+
+    // ============================================================
+    // ===== ОБРАБОТКА ПАРАМЕТРОВ URL =====
+    // ============================================================
+    function handleRoute() {
+        const params = new URLSearchParams(window.location.search);
+        const page = params.get('page');
+        const rune = params.get('rune');
+        
+        if (page === 'rune' && rune && runeData[rune]) {
+            showRunePage(rune);
+        } else if (page && document.getElementById('page-' + page)) {
+            showPage(page);
+        } else {
+            showPage('main');
+        }
+    }
+
+    window.addEventListener('popstate', handleRoute);
+
+    // ============================================================
+    // ===== РУНИЧЕСКИЙ КРУГ =====
+    // ============================================================
+    const runesCircle = [
+        { symbol: 'ᚠ' }, { symbol: 'ᚢ' }, { symbol: 'ᚦ' }, { symbol: 'ᚨ' },
+        { symbol: 'ᚱ' }, { symbol: 'ᚲ' }, { symbol: 'ᚷ' }, { symbol: 'ᚹ' },
+        { symbol: 'ᚺ' }, { symbol: 'ᚾ' }, { symbol: 'ᛁ' }, { symbol: 'ᛃ' },
+        { symbol: 'ᛇ' }, { symbol: 'ᛈ' }, { symbol: 'ᛉ' }, { symbol: 'ᛋ' },
+        { symbol: 'ᛏ' }, { symbol: 'ᛒ' }, { symbol: 'ᛖ' }, { symbol: 'ᛗ' },
+        { symbol: 'ᛚ' }, { symbol: 'ᛝ' }, { symbol: 'ᛟ' }, { symbol: 'ᛞ' }
+    ];
+
+    const circle = document.getElementById('runeCircle');
+    if (circle) {
+        const total = runesCircle.length;
+        const radius = 40;
+        runesCircle.forEach((rune, index) => {
+            const angle = (index / total) * 360;
+            const radian = (angle - 90) * Math.PI / 180;
+            const x = 50 + radius * Math.cos(radian);
+            const y = 50 + radius * Math.sin(radian);
+            const item = document.createElement('div');
+            item.className = 'rune-item';
+            item.style.left = `calc(${x}% - 16px)`;
+            item.style.top = `calc(${y}% - 16px)`;
+            item.textContent = rune.symbol;
+            circle.appendChild(item);
+        });
+    }
+
+    let isRotating = true;
+    const toggleBtn = document.getElementById('toggleRotation');
+    if (toggleBtn) {
+        toggleBtn.addEventListener('click', function() {
+            isRotating = !isRotating;
+            circle.style.animationPlayState = isRotating ? 'running' : 'paused';
+            this.textContent = isRotating ? '⏸ Приостановить' : '▶ Вращать';
+            this.classList.toggle('active');
+        });
+    }
+
+    // ============================================================
+    // ===== ЦИТАТА ДНЯ =====
+    // ============================================================
+    const quotes = [
+        { text: 'Познай себя, и ты познаешь мир. Познай руны — и ты познаешь себя.', author: 'из Старшей Эдды' },
+        { text: 'Руны — это не предсказание судьбы, а подсказки на пути.', author: 'скандинавская традиция' },
+        { text: 'Умирают люди, умирают боги — но руны и память о них живут в тех, кто помнит.', author: 'из Старшей Эдды' },
+        { text: 'Мудрость приходит к тем, кто умеет слушать тишину и слышать голос камней.', author: 'северная мудрость' },
+        { text: 'Дар должен быть равноценен дару. Так сохраняется гармония в мире.', author: 'руна Гебо' },
+        { text: 'Сила не в том, чтобы победить всех, а в том, чтобы не сдаваться.', author: 'скандинавская традиция' },
+        { text: 'Ветер сдувает старые следы, но не уничтожает их — он превращает их в новые пути.', author: 'северная мудрость' },
+        { text: 'Тот, кто слышит свой внутренний голос, никогда не попадёт в ловушку.', author: 'руна Альгиз' },
+        { text: 'Человек силён своими корнями. Помни своих предков, и ты никогда не потеряешь себя.', author: 'руна Манназ' },
+        { text: 'Огонь — это свет во тьме. Зажги его, и ты увидишь путь.', author: 'руна Кеназ' },
+        { text: 'Что посеешь, то и пожнёшь. Жди своего часа, и урожай придёт.', author: 'руна Йера' },
+        { text: 'После ночи всегда приходит рассвет. Свет приходит к тем, кто ждёт его с верой.', author: 'руна Дагаз' },
+        { text: 'Честь дороже жизни. Сражайся за правду, даже если это стоит тебе всего.', author: 'руна Тейваз' },
+        { text: 'Сила нужна тому, кто хочет победить, но ещё важнее — сила духа, чтобы не сдаться.', author: 'руна Уруз' },
+        { text: 'Богатство — утешение для человека, но оно должно быть разделено, иначе принесёт лишь горе.', author: 'руна Феху' },
+        { text: 'Лёд скрывает течение, но не останавливает его. Время тишины — это время роста.', author: 'руна Иса' }
+    ];
+
+    let currentQuoteIndex = -1;
+
+    function updateDailyQuote() {
+        const today = new Date();
+        const dayOfYear = Math.floor((today - new Date(today.getFullYear(), 0, 0)) / (1000 * 60 * 60 * 24));
+        const index = dayOfYear % quotes.length;
+        currentQuoteIndex = index;
+        const quote = quotes[index];
+        document.getElementById('dailyQuote').textContent = `«${quote.text}»`;
+        document.getElementById('quoteAuthor').textContent = `— ${quote.author}`;
+    }
+
+    function updateQuote() {
+        let newIndex;
+        do {
+            newIndex = Math.floor(Math.random() * quotes.length);
+        } while (newIndex === currentQuoteIndex && quotes.length > 1);
+        currentQuoteIndex = newIndex;
+        const quote = quotes[currentQuoteIndex];
+        document.getElementById('dailyQuote').textContent = `«${quote.text}»`;
+        document.getElementById('quoteAuthor').textContent = `— ${quote.author}`;
+        const block = document.getElementById('dailyQuote').parentElement;
+        block.style.transition = 'opacity 0.3s ease';
+        block.style.opacity = '0.6';
+        setTimeout(() => { block.style.opacity = '1'; }, 150);
+    }
+
+    updateDailyQuote();
+
+    // ============================================================
+    // ===== ГОРОСКОП =====
+    // ============================================================
+    document.getElementById('showHoroscope').addEventListener('click', function() {
+        const date = new Date(document.getElementById('birthdate').value);
+        if (isNaN(date.getTime())) {
+            alert('Пожалуйста, введите корректную дату!');
+            return;
+        }
+        const start = new Date(1900, 2, 23);
+        const diff = Math.floor((date - start) / (1000 * 60 * 60 * 24));
+        const index = ((diff % 24) + 24) % 24;
+        const key = runeKeys[index];
+        const data = runeData[key];
+        if (data) {
+            document.getElementById('hSymbol').textContent = data.symbol;
+            document.getElementById('hName').textContent = data.name;
+            document.getElementById('hMeaning').textContent = data.meaning;
+            document.getElementById('horoscopeResult').classList.add('show');
+        }
+    });
+
+    // ============================================================
+    // ===== ГАДАНИЕ =====
+    // ============================================================
+    const oracleCircle = document.getElementById('oracleCircle');
+    const oracleSymbol = document.getElementById('oracleSymbol');
+    const oracleResult = document.getElementById('oracleResult');
+    const oracleName = document.getElementById('oracleName');
+    const oracleMeaning = document.getElementById('oracleMeaning');
+    const oraclePlaceholder = document.getElementById('oraclePlaceholder');
+
+    oracleCircle.addEventListener('click', function() {
+        const randomKey = runeKeys[Math.floor(Math.random() * runeKeys.length)];
+        const data = runeData[randomKey];
+        this.style.transform = 'scale(1.05)';
+        setTimeout(() => { this.style.transform = 'scale(1)'; }, 200);
+        oracleSymbol.textContent = data.symbol;
+        oracleResult.style.display = 'block';
+        oracleName.textContent = data.name;
+        oracleMeaning.textContent = data.meaning.slice(0, 150) + '...';
+        oraclePlaceholder.style.display = 'none';
+    });
+
+    const tPast = document.getElementById('tPast');
+    const tPresent = document.getElementById('tPresent');
+    const tFuture = document.getElementById('tFuture');
+    const tPastName = document.getElementById('tPastName');
+    const tPresentName = document.getElementById('tPresentName');
+    const tFutureName = document.getElementById('tFutureName');
+
+    document.getElementById('threeRunesBtn').addEventListener('click', function() {
+        const keys = [];
+        for (let i = 0; i < 3; i++) {
+            keys.push(runeKeys[Math.floor(Math.random() * runeKeys.length)]);
+        }
+        tPast.textContent = runeData[keys[0]].symbol;
+        tPastName.textContent = runeData[keys[0]].name;
+        tPresent.textContent = runeData[keys[1]].symbol;
+        tPresentName.textContent = runeData[keys[1]].name;
+        tFuture.textContent = runeData[keys[2]].symbol;
+        tFutureName.textContent = runeData[keys[2]].name;
+        this.textContent = '✦ Бросить руны ✦';
+        this.style.transform = 'scale(0.95)';
+        setTimeout(() => { this.style.transform = 'scale(1)'; }, 200);
+    });
+
+    // ============================================================
+    // ===== МОДАЛЬНОЕ ОКНО ПОЛИТИКИ =====
+    // ============================================================
+    function openPrivacyPolicy() {
+        document.getElementById('privacyModal').classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closePrivacyPolicy() {
+        document.getElementById('privacyModal').classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    document.getElementById('privacyModal').addEventListener('click', function(e) {
+        if (e.target === this) closePrivacyPolicy();
+    });
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') closePrivacyPolicy();
+    });
+
+    // ============================================================
+    // ===== ИНИЦИАЛИЗАЦИЯ =====
+    // ============================================================
+    handleRoute();
+
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js')
+            .then(() => console.log('✅ Service Worker зарегистрирован'))
+            .catch(err => console.log('❌ Ошибка:', err));
+    }
+
+    console.log('✅ Мобильное приложение рун загружено');
+</script>
+
+</body>
+</html>
